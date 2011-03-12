@@ -35,7 +35,6 @@ public class vBulletinWhitelist extends JavaPlugin {
 
     public void onDisable() {
     	pdfFile = this.getDescription();
-        //System.out.println( pdfFile.getName() + " version " + pdfFile.getVersion() + " is disabled!" );
         Log.log(Level.INFO, "[" + pdfFile.getName() + "] version " + pdfFile.getVersion() + " is disabled!");
     }
 
@@ -48,7 +47,7 @@ public class vBulletinWhitelist extends JavaPlugin {
         {
             try
             {
-            	 new File("plugins/vBulletinWhitelist/").mkdir();
+            	new File("plugins/vBulletinWhitelist/").mkdir();
             	new File("plugins/vBulletinWhitelist/vBulletinWhitelist.properties").createNewFile();
                 Writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("plugins/vBulletinWhitelist/vBulletinWhitelist.properties")));
                 Writer.write("# The path to your forums directory. Please include the trailing slash.\r\nforumpath=http://www.yourwebsite.com/path/to/forum/");
@@ -94,7 +93,6 @@ public class vBulletinWhitelist extends JavaPlugin {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvent(Event.Type.PLAYER_LOGIN, playerListener, Priority.Normal, this);
 
-        //System.out.println( pdfFile.getName() + " version " + pdfFile.getVersion() + " is enabled!" );
         Log.log(Level.INFO, "[" + pdfFile.getName() + "] version " + pdfFile.getVersion() + " is enabled!");
     }
     
@@ -140,16 +138,6 @@ public class vBulletinWhitelist extends JavaPlugin {
     		Log.log(Level.INFO, "[" + pdfFile.getName() + "] " + playername + " is not registered. DENIED!");
     		return false;
     	}
-    }
-    
-    public static Logger getLogger()
-    {
-    	return Log;
-    }
-    
-    public static PluginDescriptionFile getPdf()
-    {
-    	return pdfFile;
     }
     
     public static String getForumPath()
